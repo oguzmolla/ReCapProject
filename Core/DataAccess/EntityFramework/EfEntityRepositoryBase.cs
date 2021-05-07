@@ -18,7 +18,7 @@ namespace Core.DataAccess.EntityFramework
         where TEntity:class, IEntity, new()
         where TContext : DbContext, new()
     {
-        public void Add(TEntity entity)
+        public TEntity Add(TEntity entity)
         {
             //IDisposable patern implemantation of c#
             using (TContext context = new TContext())
@@ -26,6 +26,7 @@ namespace Core.DataAccess.EntityFramework
                 var addEntity = context.Entry(entity);
                 addEntity.State = EntityState.Added;
                 context.SaveChanges();
+                return entity;
             }
         }
 
@@ -57,13 +58,14 @@ namespace Core.DataAccess.EntityFramework
             }
         }
 
-        public void Update(TEntity entity)
+        public TEntity Update(TEntity entity)
         {
             using (TContext context = new TContext())
             {
                 var updateEntity = context.Entry(entity);
                 updateEntity.State = EntityState.Modified;
                 context.SaveChanges();
+                return entity;
             }
         }
     }

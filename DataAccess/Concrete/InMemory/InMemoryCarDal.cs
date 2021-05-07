@@ -1,4 +1,5 @@
-﻿using DataAccess.Abstract;
+﻿using Core.DataAccess;
+using DataAccess.Abstract;
 using Entities.Concrete;
 using Entities.DTOs;
 using System;
@@ -70,6 +71,16 @@ namespace DataAccess.Concrete.InMemory
             Car carToUpdate = _cars.SingleOrDefault(x => x.Id == car.Id);
             carToUpdate.Description = car.Description;
             carToUpdate.ModelYear = car.ModelYear;
+        }
+
+        Car IEntityRepository<Car>.Add(Car entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        Car IEntityRepository<Car>.Update(Car entity)
+        {
+            throw new NotImplementedException();
         }
     }
 }

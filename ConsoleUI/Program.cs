@@ -31,7 +31,7 @@ namespace ConsoleUI
             //Console.WriteLine();
             //Console.WriteLine("yeni car eklendi  :" + car.Description);
 
-            foreach (var item in carManager.GetCarDetails())
+            foreach (var item in carManager.GetCarDetails().Data)
             {
                 Console.WriteLine(item.CarName+" Marka :  " +item.BrandName+" Renk :  "+ item.ColorName);
             }
