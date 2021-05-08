@@ -17,6 +17,9 @@ namespace Business.Constants
         public static string CustomerDeleted = "Customer silindi.";
         public static string CustomerUpdated = "Customer Güncellendi.";
 
+        #endregion
+
+        #region Rental Messages
         public static string CarAlreadyRented = "Bu araba başkasına kiralanmıştır";
         #endregion
     }
